@@ -1,11 +1,9 @@
 import React from "react";
 import useFetch from "../Hooks/useFetch";
 
-const JobsData = () => {
+const JobsData = ({ keyword }) => {
   const url = "https://www.arbeitnow.com/api/job-board-api";
   const { data, isLoading, error } = useFetch(url);
-
-  console.log(data, "testing api");
 
   return (
     <div>
