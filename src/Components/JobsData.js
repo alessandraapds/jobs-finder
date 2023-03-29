@@ -7,6 +7,8 @@ const JobsData = ({ keyword }) => {
 
   console.log(keyword, "find keyword");
 
+  const testInput = () => {};
+
   return (
     <div>
       {isLoading ? (
@@ -36,7 +38,33 @@ const JobsData = ({ keyword }) => {
           );
         })
       ) : (
-        <div>Keyword found</div>
+        data.data.filter((job) => {
+          if (job.location === keyword) {
+            return (
+              <div class="container">
+                <div class="row">
+                  <div class="col-8">
+                    <div>Position: {job.title}</div>
+                    <div>Company: {job.company_name}</div>
+                    <div>City: {job.location}</div>
+                    <div>Possible remote: {job.remote ? "Yes" : "No"}</div>
+                    <div>{job.tags}</div>
+                    <br />
+                  </div>
+                  <div class="col-4">
+                    <div>
+                      <a href={job.url} target="_blank">
+                        View job description
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          } else {
+            return <div>No matches</div>;
+          }
+        })
       )}
     </div>
   );
