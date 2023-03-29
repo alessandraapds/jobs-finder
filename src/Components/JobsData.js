@@ -14,18 +14,24 @@ const JobsData = () => {
       ) : (
         data.data.map((job) => {
           return (
-            <div>
-              <div>Position: {job.title}</div>
-              <div>Company: {job.company_name}</div>
-              <div>City: {job.location}</div>
-              <div>Possible remote: {job.remote ? "Yes" : "No"}</div>
-              <div>{job.tags}</div>
-              <div>
-                <a href={job.url} target="_blank">
-                  View job description
-                </a>
+            <div class="container">
+              <div class="row">
+                <div class="col-8">
+                  <div>Position: {job.title}</div>
+                  <div>Company: {job.company_name}</div>
+                  <div>City: {job.location}</div>
+                  <div>Possible remote: {job.remote ? "Yes" : "No"}</div>
+                  <div>{job.tags}</div>
+                  <br />
+                </div>
+                <div class="col-4">
+                  <div>
+                    <a href={job.url} target="_blank">
+                      View job description
+                    </a>
+                  </div>
+                </div>
               </div>
-              <br />
             </div>
           );
         })
