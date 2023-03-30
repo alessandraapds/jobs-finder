@@ -5,10 +5,6 @@ const JobsData = ({ keyword }) => {
   const url = "https://www.arbeitnow.com/api/job-board-api";
   const { data, isLoading, error } = useFetch(url);
 
-  console.log(keyword, "find keyword");
-
-  const testInput = () => {};
-
   return (
     <div>
       {isLoading ? (
@@ -38,8 +34,11 @@ const JobsData = ({ keyword }) => {
           );
         })
       ) : (
-        data.data.filter((job) => {
-          if (job.location === keyword) {
+        data.data.map((job) => {
+          if (
+            job.location === keyword ||
+            job.title.toLowerCase().includes(keyword)
+          ) {
             return (
               <div class="container">
                 <div class="row">
@@ -61,8 +60,6 @@ const JobsData = ({ keyword }) => {
                 </div>
               </div>
             );
-          } else {
-            return <div>No matches</div>;
           }
         })
       )}
