@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import JobsData from "./JobsData";
+import "./Components.css";
 
 const Form = () => {
   const [input, setInput] = useState("");
@@ -13,15 +14,20 @@ const Form = () => {
 
   return (
     <div class="container">
-      <div>Find your next job</div>
-      <form>
+      <form class="form">
         <input
           type="text"
           placeholder="Enter a job title or location"
+          class="input-form"
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-        <input type="submit" value="Find me a job" onClick={saveInput} />
+        <input
+          type="submit"
+          class="form-button"
+          value="Find me a job"
+          onClick={saveInput}
+        />
       </form>
       <JobsData keyword={keyword} />
     </div>
