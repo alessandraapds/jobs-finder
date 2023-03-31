@@ -14,9 +14,7 @@ const Form = () => {
 
   return (
     <div class="container">
-      <i class="bi bi-briefcase-fill"></i>
-      <h1>Find your next job</h1>
-      <form>
+      <form class="form">
         <input
           type="text"
           placeholder="Enter a job title or location"
